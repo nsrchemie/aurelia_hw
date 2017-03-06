@@ -16,10 +16,11 @@ define('app',['exports'], function (exports) {
       _classCallCheck(this, App);
 
       this.message = 'Hello World!';
+      this.name = '';
     }
 
     App.prototype.greeting = function greeting() {
-      alert('Hi ${this.name}');
+      alert(this.name);
     };
 
     return App;
