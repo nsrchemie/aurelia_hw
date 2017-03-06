@@ -5,6 +5,6 @@ export class App {
  }
 
  greeting() {
-   alert(this.name);
+   alert(` Hi ${this.name} `);
  }
 }

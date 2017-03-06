@@ -20,7 +20,7 @@ define('app',['exports'], function (exports) {
     }
 
     App.prototype.greeting = function greeting() {
-      alert(this.name);
+      alert(' Hi ' + this.name + ' ');
     };
 
     return App;
