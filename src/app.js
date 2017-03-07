@@ -11,13 +11,4 @@ export class App {
 
       this.router = router;
    }
-
-	constructor() {
-		this.message = 'Hello World!';
-		this.name = '';
- }
-
-	greeting() {
-	alert(` Hi ${this.name} `);
- }
 }

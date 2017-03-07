@@ -12,6 +12,10 @@ define('app',['exports'], function (exports) {
    }
 
    var App = exports.App = function () {
+      function App() {
+         _classCallCheck(this, App);
+      }
+
       App.prototype.configureRouter = function configureRouter(config, router) {
          config.title = 'Aurelia';
 
@@ -19,17 +23,6 @@ define('app',['exports'], function (exports) {
             moduleId: './components/about/about', nav: true, title: 'About' }]);
 
          this.router = router;
-      };
-
-      function App() {
-         _classCallCheck(this, App);
-
-         this.message = 'Hello World!';
-         this.name = '';
-      }
-
-      App.prototype.greeting = function greeting() {
-         alert(' Hi ' + this.name + ' ');
       };
 
       return App;
@@ -110,24 +103,35 @@ define('components/about/about',["exports"], function (exports) {
     _classCallCheck(this, About);
   };
 });
-define('components/home/home',["exports"], function (exports) {
-  "use strict";
+define('components/home/home',['exports'], function (exports) {
+	'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
 
-  var Home = exports.Home = function Home() {
-    _classCallCheck(this, Home);
-  };
+	var Home = exports.Home = function () {
+		function Home() {
+			_classCallCheck(this, Home);
+
+			this.message = 'Hello World!';
+			this.name = '';
+		}
+
+		Home.prototype.greeting = function greeting() {
+			alert(' Hi ' + this.name + ' ');
+		};
+
+		return Home;
+	}();
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><h2>${message}</h2><input value.bind=\"name\"> <button click.delegate=\"greeting()\">Greet!</button><router-view></router-view></template>"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><router-view></router-view></template>"; });
 define('text!components/about/about.html', ['module'], function(module) { module.exports = "<template><h1>ABOUT</h1></template>"; });
-define('text!components/home/home.html', ['module'], function(module) { module.exports = "<template><h1>HOME</h1></template>"; });
+define('text!components/home/home.html', ['module'], function(module) { module.exports = "<template><h1>HOME</h1><h2>${message}</h2><input value.bind=\"name\"> <button click.delegate=\"greeting()\">Greet!</button></template>"; });
 //# sourceMappingURL=app-bundle.js.map
