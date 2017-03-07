@@ -131,7 +131,7 @@ define('components/home/home',['exports'], function (exports) {
 		return Home;
 	}();
 });
-define('text!app.html', ['module'], function(module) { module.exports = "<template><router-view></router-view></template>"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template><ul><li repeat.for=\"row of router.navigation\"><a href.bind=\"row.href\">${row.title}</a></li><router-view></router-view></ul></template>"; });
 define('text!components/about/about.html', ['module'], function(module) { module.exports = "<template><h1>ABOUT</h1></template>"; });
 define('text!components/home/home.html', ['module'], function(module) { module.exports = "<template><h1>HOME</h1><h2>${message}</h2><input value.bind=\"name\"> <button click.delegate=\"greeting()\">Greet!</button></template>"; });
 //# sourceMappingURL=app-bundle.js.map
